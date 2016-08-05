@@ -1,6 +1,6 @@
 import expect from 'expect.js';
 
-import { ActionTypes, reducer, createReducer } from '../es6/index';
+import { ActionTypes, createReducer, default as reducer } from '../../../es6/modules/uploader';
 
 describe('reducer', () => {
   it('returns state with only the handle when passed undefined and non-uploader action', () => {

@@ -2,7 +2,7 @@ import { EventEmitter } from 'events';
 import expect from 'expect.js';
 import sinonLib from 'sinon';
 
-import { createMiddleware, ActionTypes } from '../es6/index';
+import { createMiddleware, ActionTypes } from '../../../es6/modules/uploader';
 
 // const noop = () => {};
 // const noopStore = {

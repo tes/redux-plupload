@@ -4,3 +4,5 @@ manifest.json
 npm-debug.log
 npm-debug.log.*
 .idea
+.floo
+.flooignore

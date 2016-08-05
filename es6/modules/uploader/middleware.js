@@ -1,7 +1,7 @@
 import contentDisposition from 'content-disposition';
 
 import { ActionTypes, DEFAULT_UPLOADER_HANDLE } from './constants';
-import { makeSnapshotFunction } from './snapshot';
+import { makeSnapshotFunction } from '../../snapshot';
 
 const actionToMethod = {
   [ActionTypes.SET_OPTION]: ['setOption', ({ option, value }) => [option, value]],
