@@ -1,3 +1,7 @@
-export { FileStatus, States, Errors, ActionTypes } from './constants';
-export { default as createMiddleware } from './middleware';
-export { default as reducer, createReducer } from './reducer';
+const { FileStatus, States, Errors, ActionTypes } = require('./constants');
+const { createMiddleware } = require('./middleware');
+const { reducer, createReducer } = require('./reducer');
+
+module.exports = {
+  FileStatus, States, Errors, ActionTypes, createMiddleware, reducer, createReducer,
+};

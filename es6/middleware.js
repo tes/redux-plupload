@@ -1,7 +1,7 @@
-import contentDisposition from 'content-disposition';
+const contentDisposition = require('content-disposition');
 
-import { ActionTypes, DEFAULT_UPLOADER_HANDLE } from './constants';
-import { makeSnapshotFunction } from './snapshot';
+const { ActionTypes, DEFAULT_UPLOADER_HANDLE } = require('./constants');
+const { makeSnapshotFunction } = require('./snapshot');
 
 const actionToMethod = {
   [ActionTypes.SET_OPTION]: ['setOption', ({ option, value }) => [option, value]],
@@ -99,7 +99,7 @@ function init(store, plupload, options) {
   return uploader;
 }
 
-export default function createMiddleware(plupload, origOptions = {}) {
+const createMiddleware = function createMiddleware(plupload, origOptions = {}) {
   let uploaders;
   return store => next => action => {
     const { type, payload = {}, meta = {} } = action;
@@ -137,4 +137,6 @@ export default function createMiddleware(plupload, origOptions = {}) {
 
     return next(action);
   };
-}
+};
+
+module.exports = { createMiddleware };

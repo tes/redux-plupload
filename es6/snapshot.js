@@ -80,12 +80,17 @@ function mapSnapshotHelper(obj, origRef, context) {
   return snap;
 }
 
-export default function snapshot(obj, ref) {
+const snapshot = function snapshot(obj, ref) {
   return stackSnapshotHelper(obj, ref, { stack: [], snapshotHelper: stackSnapshotHelper });
-}
+};
 
-export function makeSnapshotFunction() {
+const makeSnapshotFunction = function makeSnapshotFunction() {
   const map = new WeakMap();
   return (obj, ref) =>
     mapSnapshotHelper(obj, ref, { map, stack: [], snapshotHelper: mapSnapshotHelper });
-}
+};
+
+module.exports = {
+  snapshot,
+  makeSnapshotFunction,
+};

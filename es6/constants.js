@@ -1,7 +1,7 @@
-import keymirror from 'keymirror';
+const keymirror = require('keymirror');
 
 // Copied from plupload
-export const FileStatus = {
+const FileStatus = {
   QUEUED: 1,
   UPLOADING: 2,
   FAILED: 4,
@@ -10,13 +10,13 @@ export const FileStatus = {
 };
 
 // Copied from plupload
-export const States = {
+const States = {
   STOPPED: 1,
   STARTED: 2,
 };
 
 // Copied from plupload
-export const Errors = {
+const Errors = {
   GENERIC_ERROR: -100,
   HTTP_ERROR: -200,
   IO_ERROR: -300,
@@ -31,7 +31,7 @@ export const Errors = {
   OPTION_ERROR: -800,
 };
 
-export const ActionTypes = keymirror({
+const ActionTypes = keymirror({
   INIT: null,
   SET_OPTION: null,
   REFRESH: null,
@@ -64,4 +64,12 @@ export const ActionTypes = keymirror({
 
 Object.keys(ActionTypes).forEach(key => { ActionTypes[key] = `redux-plupload/${key}`; });
 
-export const DEFAULT_UPLOADER_HANDLE = 'default';
+const DEFAULT_UPLOADER_HANDLE = 'default';
+
+module.exports = {
+  FileStatus,
+  States,
+  Errors,
+  ActionTypes,
+  DEFAULT_UPLOADER_HANDLE,
+};

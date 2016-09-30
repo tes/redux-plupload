@@ -1,6 +1,6 @@
-import { ActionTypes, DEFAULT_UPLOADER_HANDLE } from './constants';
+const { ActionTypes, DEFAULT_UPLOADER_HANDLE } = require('./constants');
 
-export function createReducer(handle = DEFAULT_UPLOADER_HANDLE) {
+const createReducer = function createReducer(handle = DEFAULT_UPLOADER_HANDLE) {
   return function reducer(state = { handle }, { type, meta: { uploader } = {} }) {
     switch (type) {
       case ActionTypes.INITING:
@@ -25,6 +25,6 @@ export function createReducer(handle = DEFAULT_UPLOADER_HANDLE) {
         return state;
     }
   };
-}
+};
 
-export default createReducer();
+module.exports = createReducer;
