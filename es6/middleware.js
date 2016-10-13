@@ -1,7 +1,7 @@
-import contentDisposition from 'content-disposition';
+const contentDisposition = require('content-disposition');
 
-import { ActionTypes, DEFAULT_UPLOADER_HANDLE } from './constants';
-import { makeSnapshotFunction } from './snapshot';
+const { ActionTypes, DEFAULT_UPLOADER_HANDLE } = require('./constants');
+const { makeSnapshotFunction } = require('./snapshot');
 
 const actionToMethod = {
   [ActionTypes.SET_OPTION]: ['setOption', ({ option, value }) => [option, value]],
@@ -99,7 +99,7 @@ function init(store, plupload, options) {
   return uploader;
 }
 
-export default function createMiddleware(plupload, origOptions = {}) {
+const createMiddleware = function createMiddleware(plupload, origOptions = {}) {
   let uploaders;
   return store => next => action => {
     const { type, payload = {}, meta = {} } = action;
@@ -113,28 +113,38 @@ export default function createMiddleware(plupload, origOptions = {}) {
     }
     if (!uploader) return next(action);
 
-    let method = undefined;
-    let payloadTransform = undefined;
+    const callUploadMethod = (actionType) => {
+      const [method] = actionToMethod[actionType];
+      uploader[method].apply(uploader);
+    };
+
     switch (type) {
       case ActionTypes.REFRESH:
       case ActionTypes.START:
       case ActionTypes.STOP:
-      case ActionTypes.CLEAR:
-      case ActionTypes.DESTROY:
-        [method] = actionToMethod[type];
-        uploader[method].apply(uploader);
+      case ActionTypes.CLEAR: {
+        callUploadMethod(type);
         break;
+      }
+      case ActionTypes.DESTROY: {
+        callUploadMethod(type);
+        delete uploaders[handle];
+        break;
+      }
       case ActionTypes.SET_OPTION:
       case ActionTypes.DISABLE_BROWSE:
       case ActionTypes.ADD_FILE:
-      case ActionTypes.REMOVE_FILE:
-        [method, payloadTransform] = actionToMethod[type] || [];
+      case ActionTypes.REMOVE_FILE: {
+        const [method, payloadTransform] = actionToMethod[type] || [];
         uploader[method].apply(uploader, (payloadTransform(payload) || []));
         break;
+      }
       default:
         break;
     }
 
     return next(action);
   };
-}
+};
+
+module.exports = { createMiddleware };
