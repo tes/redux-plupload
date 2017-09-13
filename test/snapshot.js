@@ -141,6 +141,15 @@ function defineSnapshotTests(c) {
     obj2.b[0].parent = obj2;
     expect(c.snap(obj2)).to.eql({ b: [{ parent: undefined }] });
   });
+
+  it('handles properties throwing Errors on read', () => {
+    const obj = {
+      get a() {
+        throw Error();
+      },
+    };
+    expect(c.snap(obj)).to.eql({ a: undefined });
+  });
 }
 
 describe('snapshot', () => {
