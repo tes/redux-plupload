@@ -16,7 +16,13 @@ function snapshotObject(obj, origRef, context) {
     if (ref.hasOwnProperty(key)) foundRefKeys++;
 
     const referenceStateForKey = ref[key];
-    const clonedStateForKey = snapshotHelper(obj[key], referenceStateForKey, context);
+    let value;
+    try {
+      value = obj[key];
+    } catch (e) {
+      // Ignore errors generated accessing properties returned by `Object.keys()`.
+    }
+    const clonedStateForKey = snapshotHelper(value, referenceStateForKey, context);
     clone[key] = clonedStateForKey;
     changed = changed || clonedStateForKey !== referenceStateForKey;
   }
