@@ -15,7 +15,7 @@
     "clean": "rimraf lib",
     "build": "cross-env BABEL_ENV=es5 babel es6 --out-dir lib",
     "precommit": "npm run lint && npm run test",
-    "release": "npm run build && npm publish"
+    "release": "npm run clean && npm run build && npm publish"
   },
   "keywords": [
     "plupload",
