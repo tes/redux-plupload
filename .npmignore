@@ -1,0 +1,7 @@
+node_modules/
+test/
+manifest.json
+npm-debug.log
+npm-debug.log.*
+.idea
+.travis.yml
