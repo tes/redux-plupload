@@ -2,6 +2,9 @@
 
 [FSA](https://github.com/acdlite/flux-standard-action)-compliant [Redux](https://github.com/reactjs/redux) bindings for [Plupload](https://github.com/moxiecode/plupload).
 
+[![npm version](https://badge.fury.io/js/redux-plupload.svg)](https://badge.fury.io/js/redux-plupload)
+[![Build Status](https://travis-ci.org/tes/redux-plupload.svg?branch=master)](https://travis-ci.org/tes/redux-plupload)
+![Dependency Status](https://david-dm.org/tes/redux-plupload.svg)
 [![GitHub license](https://img.shields.io/github/license/tes/redux-plupload.svg)](https://github.com/tes/redux-plupload/blob/master/LICENSE)
 
 ## Overview
