@@ -35,10 +35,8 @@
     "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
     "content-disposition": "^0.5.1"
-  },
-  "peerDependencies": {
-    "@babel/runtime": "^7.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
