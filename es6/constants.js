@@ -1,5 +1,3 @@
-import keymirror from 'keymirror';
-
 // Copied from plupload
 export const FileStatus = {
   QUEUED: 1,
@@ -31,36 +29,36 @@ export const Errors = {
   OPTION_ERROR: -800,
 };
 
-export const ActionTypes = keymirror({
-  INIT: null,
-  SET_OPTION: null,
-  REFRESH: null,
-  START: null,
-  STOP: null,
-  DISABLE_BROWSE: null,
-  ADD_FILE: null,
-  REMOVE_FILE: null,
-  DESTROY: null,
-  CLEAR: null,
+export const ActionTypes = {
+  INIT: 'INIT',
+  SET_OPTION: 'SET_OPTION',
+  REFRESH: 'REFRESH',
+  START: 'START',
+  STOP: 'STOP',
+  DISABLE_BROWSE: 'DISABLE_BROWSE',
+  ADD_FILE: 'ADD_FILE',
+  REMOVE_FILE: 'REMOVE_FILE',
+  DESTROY: 'DESTROY',
+  CLEAR: 'CLEAR',
 
-  INITING: null,
-  POST_INIT: null,
-  OPTION_CHANGED: null,
-  REFRESHING: null,
-  STATE_CHANGED: null,
-  UPLOAD_FILE: null,
-  BEFORE_UPLOAD: null,
-  QUEUE_CHANGED: null,
-  UPLOAD_PROGRESS: null,
-  FILES_REMOVED: null,
-  FILE_FILTERED: null,
-  FILES_ADDED: null,
-  FILE_UPLOADED: null,
-  CHUNK_UPLOADED: null,
-  UPLOAD_COMPLETE: null,
-  ERROR: null,
-  DESTROYING: null,
-});
+  INITING: 'INITING',
+  POST_INIT: 'POST_INIT',
+  OPTION_CHANGED: 'OPTION_CHANGED',
+  REFRESHING: 'REFRESHING',
+  STATE_CHANGED: 'STATE_CHANGED',
+  UPLOAD_FILE: 'UPLOAD_FILE',
+  BEFORE_UPLOAD: 'BEFORE_UPLOAD',
+  QUEUE_CHANGED: 'QUEUE_CHANGED',
+  UPLOAD_PROGRESS: 'UPLOAD_PROGRESS',
+  FILES_REMOVED: 'FILES_REMOVED',
+  FILE_FILTERED: 'FILE_FILTERED',
+  FILES_ADDED: 'FILES_ADDED',
+  FILE_UPLOADED: 'FILE_UPLOADED',
+  CHUNK_UPLOADED: 'CHUNK_UPLOADED',
+  UPLOAD_COMPLETE: 'UPLOAD_COMPLETE',
+  ERROR: 'ERROR',
+  DESTROYING: 'DESTROYING',
+};
 
 Object.keys(ActionTypes).forEach(key => { ActionTypes[key] = `redux-plupload/${key}`; });
 
