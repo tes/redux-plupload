@@ -1,11 +1,13 @@
 {
-  "env": {
-    "test": {
-      "presets": [ "es2015-node5" ]
-    },
-    "es5": {
-      "presets": [ "es2015" ],
-      "plugins": [ "transform-runtime" ]
-    }
-  }
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "browsers": ["ie >= 11"]
+        }
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-transform-runtime"]
 }
