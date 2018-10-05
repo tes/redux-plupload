@@ -1,4 +1,13 @@
 {
-  "presets": [ "latest" ],
-  "plugins": [ "transform-runtime" ]
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "browsers": ["ie >= 11"]
+        }
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-transform-runtime"]
 }
