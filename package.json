@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "clean": "rimraf lib",
     "build": "cross-env BABEL_ENV=es5 babel es6 --out-dir lib",
-    "release": "npm run clean && npm run build && npm publish"
+    "prepublish": "npm run clean && npm run build"
   },
   "husky": {
     "hooks": {
