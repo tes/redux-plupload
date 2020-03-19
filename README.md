@@ -38,7 +38,7 @@ npm install --save redux-plupload
 
 ### Getting started
 
-To use `redux-plupload`, you must install the middleware (and optionally the reducer), then send an `ActionTypes.INIT` message to init the `plupload.Uploader`.  The `payload` of the action should include a `browse_button` (and optionaly `dropzone`) prop.  You can also specify `url` and `multipart_params` props at `INIT` time, or provide an `uploadSettingsSelector` that will be called with `state` and `file` as args to find the extra per-file upload settings.
+To use `redux-plupload`, you must install the middleware (and optionally the reducer), then send an `ActionTypes.INIT` message to init the `plupload.Uploader`.  The `payload` of the action should include a `browse_button` (and optionally `dropzone`) prop.  You can also specify `url` and `multipart_params` props at `INIT` time, or provide an `uploadSettingsSelector` that will be called with `state` and `file` as args to find the extra per-file upload settings.
 ```js
 // client.js
 import ReactDOM from 'react-dom';
